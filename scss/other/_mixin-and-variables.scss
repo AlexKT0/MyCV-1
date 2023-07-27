@@ -1,0 +1,148 @@
+@use "sass:math";
+
+////////////////////////////////////////////////////////////
+// #########################################################
+// ####################---xxxxxxxxxx---#####################
+// #########################################################
+////////////////////////////////////////////////////////////
+
+////////////////////////**********//////////////////////////
+////////******************************************//////////
+///////////////////////**********///////////////////////////
+
+
+////////////////////////////////////////////////////////////
+// #########################################################
+// ####################---PX to REM---#####################
+// #########################################################
+////////////////////////////////////////////////////////////
+// https://www.youtube.com/watch?v=dHbYcAncAgQ&ab_channel=CoderCoder
+// https://css-tricks.com/snippets/sass/px-to-em-functions/
+
+$browser-context: 16; //Размер по умолчанию 16px
+
+@function rem($pixels, $context: $browser-context) {
+  @return (math.div($pixels, $context)) * 1rem;
+}
+
+// h1 {
+//   font-size: rem(32);
+// }
+
+////////////////////////**********//////////////////////////
+////////******************************************//////////
+///////////////////////**********///////////////////////////
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////
+// #########################################################
+// ####################---xxxxxxxxxx---#####################
+// #########################################################
+////////////////////////////////////////////////////////////
+
+////////////////////////**********//////////////////////////
+////////******************************************//////////
+///////////////////////**********///////////////////////////
+// breakpoint-mixin
+$lowResolution: 320px;
+$mediumResolution: 480px;
+$tablets: 768px;
+$laptopsAndDesktops: 992px;
+$desktops: 1200px;
+
+@mixin breakpoint($point) {
+	@if $point == lowResolution {
+		@media (min-width: $lowResolution) {
+			@content;
+		}
+	} @else if $point == mediumResolution {
+		@media (min-width: $mediumResolution) {
+			@content;
+		}
+	} @else if $point == tablets {
+		@media (min-width: $tablets) {
+			@content;
+		}
+	} @else if $point == laptopsAndDesktops {
+		@media (min-width: $laptopsAndDesktops) {
+			@content;
+		}
+	} @else if $point == desktops {
+		@media (min-width: $desktops) {
+			@content;
+		}
+	} @else {
+		@warn 'Not a valid breakpoint name.';
+	}
+}
+// 
+
+
+
+
+// @media (min-width: 320px) - для мобильных устройств с низким разрешением;
+// @media (min-width: 480px) - для мобильных устройств со средним разрешением;
+// @media (min-width: 768px) - для планшетов;
+// @media (min-width: 992px) - для ноутбуков и десктопов с маленьким разрешением;
+// @media (min-width: 1200px) - для десктопов с большим разрешением.
+
+// .demo {
+// background-color: rgb(255, 255, 0);
+// @include breakpoint(lowResolution) {
+// background-color:rgb(17, 61, 184);
+// }
+// @include breakpoint(mediumResolution) {
+// background-color:rgb(0, 255, 34);
+// }
+// @include breakpoint(tablets) {
+// background-color:rgb(255, 208, 0);
+// }
+// @include breakpoint(laptopsAndDesktops) {
+// background-color:rgb(0, 174, 255);
+// }
+// @include breakpoint(desktops) {
+// background-color:rgb(255, 0, 119);
+// }
+// }
+
+
+
+// $lowResolution: 320px;
+// $mediumResolution: 480px;
+// $tablets: 768px;
+// $laptopsAndDesktops: 992px;
+// $desktops: 1200px;
+
+// @mixin breakpoint($point) {
+// 	@if $point == lowResolution {
+// 		@media (min-width: $lowResolution) {
+// 			@content;
+// 		}
+// 	} @else if $point == mediumResolution {
+// 		@media (min-width: $mediumResolution) {
+// 			@content;
+// 		}
+// 	} @else if $point == tablets {
+// 		@media (min-width: $tablets) {
+// 			@content;
+// 		}
+// 	} @else if $point == laptopsAndDesktops {
+// 		@media (min-width: $laptopsAndDesktops) {
+// 			@content;
+// 		}
+// 	} @else if $point == desktops {
+// 		@media (min-width: $desktops) {
+// 			@content;
+// 		}
+// 	} @else {
+// 		@warn 'Not a valid breakpoint name.';
+// 	}
+// }
+
+
+

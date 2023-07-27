@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;900&display=swap");
+
+// font-family: "Inter Tight", sans-serif;
+
+// /* --------------------------------------- */
+
+@import "other/_reset";
+@import "other/_mixin-and-variables";
+@import "other/_hud";
+
+@import "_main.scss";
+@import "_header.scss";
+
+// /* --------------------------------------- */
+
+/* --------------------------------------- */
+
+[class*="central-container"] {
+	max-width: calc(rem(1440) + rem(30));
+	// 30px мы компенсируем отступами безопасности
+	// padding: 0px 15px;
+	padding: 0px rem(15);
+	// отступы безопасности
+	margin: 0px auto;
+	// центрируем
+}
+
+.body-wrapper {
+	overflow-x: hidden;
+}
+
+img,
+picture {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+html {
+	box-sizing: border-box;
+	// font-size: 62.5%;
+	font-size: 100%;
+}
+
+body {
+	background-color: $ColorBg--First;
+	color: $ColorText--First;
+	text-shadow: $ColorShadowText--First;
+	font-family: "Ubuntu", sans-serif;
+	font-style: normal;
+	line-height: 1.6;
+	// font-size: 1.6rem;
+}
+
+a {
+	text-decoration: none;
+	color: $ColorText--First;
+	text-shadow: $ColorShadowText--First;
+	// color: $linkColor;
+}
+
+a:hover {
+	// color: $linkColorHover;
+	transition: 0.3s;
+}
+
+// Прячим правильно элементы
+// https://htmlacademy.ru/blog/css/short-12
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+// /* --------ОБЩИЕ СТИЛИ У БЛОКОВ------------ */
+
+// /* --------------------------------------- */
+
+
+// Смена выделения у текста
+::-moz-selection {
+	background-color: #eeff00;
+	color: #000000;
+}
+::selection {
+	background-color: #eeff00;
+	color: #000000;
+}
